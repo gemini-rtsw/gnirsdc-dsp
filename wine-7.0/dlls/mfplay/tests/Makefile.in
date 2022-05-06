@@ -1,5 +1,0 @@
-TESTDLL   = mfplay.dll
-IMPORTS   = mfplay user32 uuid mfuuid
-
-C_SRCS = \
-	mfplay.c

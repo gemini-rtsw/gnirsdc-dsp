@@ -1,5 +1,5 @@
-%define _prefix /gem_base/epics/support
-%define name gnirsSDSUFirmware
+%define _prefix /gem_base/epics/ioc
+%define name gnirsdc-dsp
 %define repository gemdev
 %define debug_package %{nil}
 %define arch %(uname -m)
@@ -16,10 +16,10 @@
 %global debug_package %{nil}
 %global __os_install_post /usr/lib/rpm/brp-compress %{nil}
 
-Summary: %{name} Package, library for gnirsDC SDSU firmware 
+Summary: %{name} Package library for gnirsDC SDSU firmware 
 Name: %{name}
-Version: 0.0.1
-Release: 1%{?dist}
+Version: 0.0.0
+Release: 0%{?dist}
 License: EPICS Open License
 Group: Applications/Engineering
 Source0: %{name}-%{version}.tar.gz
@@ -41,15 +41,15 @@ This is the library %{name}.
 %setup -q 
 
 %build
-make distclean uninstall
+make clean
 make
 
 %install
 export DONT_STRIP=1
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/%{_prefix}/%{name}/firmware
-cp -r FullFrame-unified-AladdinII/AladdinII_SDSU_Firmware.lod  $RPM_BUILD_ROOT/%{_prefix}/%{name}/firmware
-cp -r FullFrame-unified-AladdinIII/AladdinIII_SDSU_Firmware.lod  $RPM_BUILD_ROOT/%{_prefix}/%{name}/firmware
+mkdir -p $RPM_BUILD_ROOT/%{_prefix}/%{name}/gnirsdc-firmware
+cp -r FullFrame-unified-AladdinII/AladdinII_SDSU_Firmware.lod  $RPM_BUILD_ROOT/%{_prefix}/%{name}/gnirsdc-firmware
+cp -r FullFrame-unified-AladdinIII/AladdinIII_SDSU_Firmware.lod  $RPM_BUILD_ROOT/%{_prefix}/%{name}/gnirsdc-firmware
 
 
 %postun
@@ -63,11 +63,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-   /%{_prefix}/%{name}/firmware
+   /%{_prefix}/%{name}/gnirsdc-firmware
 
 %files devel
 %defattr(-,root,root)
-   /%{_prefix}/%{name}/firmware
+   /%{_prefix}/%{name}/gnirsdc-firmware
 
 %changelog
 

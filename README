@@ -1,0 +1,14 @@
+Building GNIRS DSP firmware Gemini ADE2
+
+1) make firmware
+	compile firmware (must be user)
+
+2) git add .
+
+3) git commit -m "Firmware updated"
+
+4) git push
+
+If all goes well you will build an rpm that will install the firmware into the ADE2 framework.
+See the spec file for detail.
+
