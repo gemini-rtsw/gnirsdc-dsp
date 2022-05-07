@@ -1,4 +1,4 @@
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 1
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  tim.asm  Page 1
 
 
 
@@ -64,7 +64,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 1
 60                         ; Phase Locked Loop initialization
 61        050003           PLL_INIT  EQU     $050003                           ; PLL = 25 MHz x 2 = 100 MHz
 62     
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 2
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 2
 
 
 
@@ -130,7 +130,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Pa
 122    
 123                        ; Latch U25 bit equates
 124       000000           CDAC      EQU     0                                 ; Clear the analog board DACs
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 3
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 3
 
 
 
@@ -196,7 +196,7 @@ ing
 183                        9,8             Temperature readout
 184                                                00      No temperature readout
 185                                                01      Polynomial Diode calibration
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 4
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 4
 
 
 
@@ -262,7 +262,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Pa
 245       000400           SUBARRAY  EQU     $000400                           ; Subarray readout supported
 246       000800           BINNING   EQU     $000800                           ; Binning supported
 247                        SPLIT_SERIAL
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 5
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 5
 
 
 
@@ -328,7 +328,7 @@ e
 306       P:000040 P:000040                   DC      0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 307    
 308                                 ; Tune the table so the following instruction is at P:$50 exactly.
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 6
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 6
 
 
 
@@ -394,7 +394,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Pa
 359                                 DON_XMT
 360       P:00007F P:00007F 0C0054            JMP     <START
 361    
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 7
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 7
 
 
 
@@ -460,7 +460,7 @@ k
 414       P:0000AC P:0000AC 0A8989  TST2      JCLR    #EF,X:HDR,CLR_CC                  ;      Low,  High => try again
                             0000D1
 415       P:0000AE P:0000AE 0C00A9            JMP     <CHK_FO                           ;      High, High => read FIFO
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 8
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 8
 
 
 
@@ -526,7 +526,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Pa
 458       P:0000E6 P:0000E6 000000            NOP
 459       P:0000E7 P:0000E7 567000            MOVE              A,X:(SCI_TABLE+33)
                             000421
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 9
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 9
 
 
 
@@ -592,7 +592,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Pa
                             00011A
 511       P:000118 P:000118 07E087            MOVE              P:(R0),Y1               ; Read from Program Memory
 512       P:000119 P:000119 0C0090            JMP     <FINISH1                          ; Send out a header with the value
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 10
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 10
 
 
 
@@ -658,7 +658,7 @@ ry
 561       P:000152 P:000152 060CA0            REP     #12                               ; Assume 100 MHz DSP56303
 562       P:000153 P:000153 000000            NOP
 563                                 L2WRR
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 11
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 11
 
 
 
@@ -724,7 +724,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Pa
 616    
 617                                 ; Routines executed after the DSP boots and initializes
 618       P:000181 P:000181 305A00  STARTUP   MOVE              #<TST_RCV,R0            ; Execution address when idle => when not
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 12
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 12
 
 
 
@@ -790,7 +790,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Pa
 664                                 ;       PB2 = LVEN              PB10 = EXT-IN0
 665                                 ;       PB3 = HVEN              PB11 = EXT-IN1
 666                                 ;       PB4 = STATUS0           PB12 = EXT-OUT0
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 13
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 13
 
 
 
@@ -856,7 +856,7 @@ ut)
 716                                                                                     ; DC[4:0] = 0
 717                                                                                     ; WL[2:0] = ALC = 0 for 8-bit data words
 718                                                                                     ; SSC1 = 0 for SC1 not used
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 14
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 14
 
 
 
@@ -922,7 +922,7 @@ ler
                             000000
 762    
 763                                 ; Enable interrupts for the SCI port only
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 15
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 15
 
 
 
@@ -988,7 +988,7 @@ es
 807       P:000209 P:000209 200068            ADD     X1,B                              ; Increment the video and clock driver numbe
 rs
 808                                 L_ANALOG
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 16
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 16
 
 
 
@@ -1054,7 +1054,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Pa
 864                                           ENDIF
 865    
 866                                 ; Special storage area - initialization constants and scratch space
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 17
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 17
 
 
 
@@ -1120,7 +1120,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Pa
 930    
 931                                 ; The table at SCI_TABLE is for words received from the utility board, written by
 932                                 ;   the interrupt service routine SCI_RCV. Note that it is 32 words long,
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Page 18
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timboot.asm  Page 18
 
 
 
@@ -1186,7 +1186,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timboot.asm  Pa
 1006      P:000267 P:000267 330700            MOVE              #COM_BUF,R3
 1007      P:000268 P:000268 0D00A5            JSR     <GET_RCV                          ; Look for a new command every 4 rows
 1008      P:000269 P:000269 0E026C            JCC     <NO_COM                           ; If none, then stay here
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 19
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  tim.asm  Page 19
 
 
 
@@ -1252,7 +1252,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 1
                             0001A5
 1068                                          CLOCK
 1072      P:00029A P:00029A 0D0387            JSR     <CLK_COL_AND_READ
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 20
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  tim.asm  Page 20
 
 
 
@@ -1318,7 +1318,7 @@ frame
 1148      P:0002E3 P:0002E3 57F400            MOVE              #$020104,B              ; Send header word to the FO transmitter
                             020104
 1149      P:0002E5 P:0002E5 0D00EB            JSR     <XMT_WRD
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 21
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  tim.asm  Page 21
 
 
 
@@ -1384,7 +1384,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 2
 1215      P:00032D P:00032D 0D00EB            JSR     <XMT_WRD                          ; Number of rows to read
 1216      P:00032E P:00032E 60F400            MOVE              #FRAME_INIT,R0
                             000198
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 22
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  tim.asm  Page 22
 
 
 
@@ -1450,7 +1450,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 2
 1292      P:00037D P:00037D 0D00A5            JSR     <GET_RCV                          ; Was a command received?
 1293      P:00037E P:00037E 0E0489            JCC     <NEXT_FRAME                       ; If no, get the next frame
 1294      P:00037F P:00037F 0C005D            JMP     <PRC_RCV                          ; If yes, go process it
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 23
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  tim.asm  Page 23
 
 
 
@@ -1516,7 +1516,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 2
 1361   
 1362   
 1363                                CLK_COL_NO_READ
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 24
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  tim.asm  Page 24
 
 
 
@@ -1582,7 +1582,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 2
 1426      P:0003D5 P:0003D5 09F4B3            MOVEP             #$002000,Y:WRSS         ; Set clock driver switches low
                             002000
 1427      P:0003D7 P:0003D7 09F4B3            MOVEP             #$003000,Y:WRSS
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 25
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 25
 
 
 
@@ -1648,7 +1648,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  
 1474      P:000407 P:000407 0A8902            BCLR    #LVEN,X:HDR                       ; LVEN = Low => Turn on +/- 6.5V,
 1475      P:000408 P:000408 0A8923            BSET    #HVEN,X:HDR
 1476      P:000409 P:000409 56F400            MOVE              #>40,A                  ; Delay for the power to turn on
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 26
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 26
 
 
 
@@ -1714,7 +1714,7 @@ es
 1525   
 1526                                ; Fast clear of the array, executed as a command
 1527      P:000435 P:000435 60F400  CLEAR     MOVE              #FRAME_RESET,R0
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 27
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 27
 
 
 
@@ -1780,7 +1780,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  
 1582      P:000460 P:000460 0C0054            JMP     <START
 1583   
 1584   
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 28
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 28
 
 
 
@@ -1846,7 +1846,7 @@ the readout at the end
 1638      P:00047B P:00047B 0C043C            JMP     <EXPOSE                           ; Delay for specified exposure time
 1639                                L_SEX3
 1640   
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 29
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 29
 
 
 
@@ -1912,7 +1912,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  
 1694      P:0004A1 P:0004A1 0D04F1            JSR     <WR_BIAS
 1695      P:0004A2 P:0004A2 0A00B2            JSET    #ST_RRR,X:STATUS,ROW_BY_ROW_RESET_READOUT
                             0002E1
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 30
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 30
 
 
 
@@ -1978,7 +1978,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  
 1745      P:0004CA P:0004CA 000000            NOP                                       ;  optic to clear out
 1746      P:0004CB P:0004CB 0C008F            JMP     <FINISH
 1747   
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 31
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 31
 
 
 
@@ -2044,7 +2044,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  
 1802   
 1803                                PCI_READ_IMAGE
 1804      P:0004F8 P:0004F8 57F400            MOVE              #$020104,B              ; Send header word to the FO transmitter
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 32
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 32
 
 
 
@@ -2110,7 +2110,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  
 1855      P:000521 P:000521 0C0090            JMP     <FINISH1
 1856   
 1857                                ; Set a particular DAC numbers, for setting DC bias voltages, clock driver
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 33
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 33
 
 
 
@@ -2176,7 +2176,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  
 1914      P:000552 P:000552 01468D  CLK_6     CMP     #6,B
 1915      P:000553 P:000553 0E2556            JNE     <CLK_7
 1916      P:000554 P:000554 0ACE6F            BSET    #15,A
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 34
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 34
 
 
 
@@ -2242,7 +2242,7 @@ f
                             000008
 1970      P:000587 P:000587 200045            CMP     X0,A                              ; Test for 8 <= MUX number <= 15
 1971      P:000588 P:000588 0E258B            JNE     <SMX_2
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 35
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 35
 
 
 
@@ -2308,7 +2308,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  
 2024      P:0005BF P:0005BF 0AC420            JSET    #0,X0,CDS_SET
                             0005C3
 2025      P:0005C1 P:0005C1 0A0011            BCLR    #ST_CDS,X:STATUS
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 36
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 36
 
 
 
@@ -2374,7 +2374,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  
 2082                                ;******************************************************************************
 2083                                ; Reset the Array
 2084                                ;******************************************************************************
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  Page 37
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  timIRmisc.asm  Page 37
 
 
 
@@ -2440,7 +2440,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  timIRmisc.asm  
 2143                                          IF      @SCP("HOST","ROM")
 2145                                          ENDIF
 2146   
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 38
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  tim.asm  Page 38
 
 
 
@@ -2506,7 +2506,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 3
 2207   
 2208      Y:000001 Y:000001         NSR       DC      12288                             ; 512 x6DS x4 for 4 Quadrants
 2209      Y:000002 Y:000002         NPR       DC      1024                              ; 2048 = 2(CDS) x NFS=1 x 512
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  tim.asm  Page 39
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  tim.asm  Page 39
 
 
 
@@ -2572,7 +2572,7 @@ itter
 2267                                ;VRW_LO         EQU     -4.0    ; VrowON low voltage
 2268                                ;VRST_HI                EQU     -3.5    ; VrstG high voltage
 2269                                ;VRST_LO                EQU     -5.8    ; VrstG low voltage
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  AladdinIII.waveforms  Page 40
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  AladdinIII.waveforms  Page 40
 
 
 
@@ -2638,7 +2638,7 @@ uld be same as VdduC for warm testing else -3.4V
 2319                                ;V3             EQU     -1                      ; for testing of each video board with the jumpe
 r connector
 2320                                ;V4             EQU     -1.2
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  AladdinIII.waveforms  Page 41
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  AladdinIII.waveforms  Page 41
 
 
 
@@ -2704,7 +2704,7 @@ ith fast 8A0
 2379      Y:000012 Y:000012                   DC      $2A0080                           ; DAC = unbuffered mode
 2380      Y:000013 Y:000013                   DC      $200100+@CVI(((CLK_HI+Vmax)/Vmax)*255) ; Pin #1, SSYNC
 2381      Y:000014 Y:000014                   DC      $200200+@CVI(((CLK_LO+Vmax)/Vmax)*255)
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  AladdinIII.waveforms  Page 42
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  AladdinIII.waveforms  Page 42
 
 
 
@@ -2770,7 +2770,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  AladdinIII.wave
 2441      Y:000047 Y:000047                   DC      $3c3000                           ; Integrate 2, High gain
 2442      Y:000048 Y:000048                   DC      $0c1000                           ; Reset image data FIFOs
 2443      Y:000049 Y:000049                   DC      $0c0000+@CVI((ADREF+5.0)/10.0*4095)
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  AladdinIII.waveforms  Page 43
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  AladdinIII.waveforms  Page 43
 
 
 
@@ -2836,7 +2836,7 @@ e follower source voltage = 5V
 2502      Y:000075 Y:000075                   DC      $1c8000+@CVI((VROWOFF+Vmax2)/Vmax3*4095) ; Pin #33 VROWOFF
 2503      Y:000076 Y:000076                   DC      $1cc000+@CVI((VGGCL+Vmax2)/Vmax3*4095) ; Pin #16 VGGCL
 2504      Y:000077 Y:000077                   DC      $1d0000+@CVI((ZERO+Vmax2)/Vmax3*4095) ; Pin #32 NC
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  AladdinIII.waveforms  Page 44
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  AladdinIII.waveforms  Page 44
 
 
 
@@ -2902,7 +2902,7 @@ e follower source voltage = 5V
 2561      Y:00009F Y:00009F                   DC      $1f0000+OFFSET12                  ; Output #4
 2562      Y:0000A0 Y:0000A0                   DC      $1f4000+OFFSET13                  ; Output #5
 2563      Y:0000A1 Y:0000A1                   DC      $1f8000+OFFSET14                  ; Output #6
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  AladdinIII.waveforms  Page 45
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  AladdinIII.waveforms  Page 45
 
 
 
@@ -2968,7 +2968,7 @@ e follower source voltage = 5V
 2620      Y:0000CB Y:0000CB                   DC      $3d0000+@CVI((ZERO+Vmax2)/Vmax3*4095) ; Pin #32 NC
 2621      Y:0000CC Y:0000CC                   DC      $3d4000+@CVI((ZERO+Vmax2)/Vmax3*4095) ; Pin #15 NC
 2622      Y:0000CD Y:0000CD                   DC      $3d8000+@CVI((ZERO+Vmax2)/Vmax3*4095) ; Pin #31 NC
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  AladdinIII.waveforms  Page 46
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  AladdinIII.waveforms  Page 46
 
 
 
@@ -3034,7 +3034,7 @@ e follower source voltage = 5V
 2681      Y:0000F7 Y:0000F7                   DC      $3f8000+OFFSET30                  ; Output #6
 2682      Y:0000F8 Y:0000F8                   DC      $3fc000+OFFSET31                  ; Output #7
 2683   
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  AladdinIII.waveforms  Page 47
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  AladdinIII.waveforms  Page 47
 
 
 
@@ -3100,7 +3100,7 @@ e follower source voltage = 5V
 2739   
 2740                                CLOCK_RR_ROW_2
 2741      Y:00011B Y:00011B                   DC      END_CLOCK_RR_ROW_2-CLOCK_RR_ROW_2-1
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_ROW_RST.waveforms  Page 48
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  CLOCK_ROW_RST.waveforms  Page 48
 
 
 
@@ -3166,7 +3166,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_ROW_RST.w
 2801      Y:000146 Y:000146                   DC      CLK3+DLY2+FSYNC+00+F2
 2802      Y:000147 Y:000147                   DC      CLK3+DLY0+FSYNC+F1+F2
 2803                                END_CLOCK_RESET_ROW_3
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_ROW_RST.waveforms  Page 49
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  CLOCK_ROW_RST.waveforms  Page 49
 
 
 
@@ -3232,7 +3232,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_ROW_RST.w
 2863                                END_CLOCK_CDS_RESET_ROW_4
 2864   
 2865                                RESET_ROW_12
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_ROW_RST.waveforms  Page 50
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  CLOCK_ROW_RST.waveforms  Page 50
 
 
 
@@ -3298,7 +3298,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_ROW_RST.w
 2924      0F0000                    ADC_TIM   EQU     $0F0000                           ;  Pixel PAD Time       (640ns)
 2925      180000                    INT_TIM   EQU     $180000                           ;  Pixel Sample Time    (1000ns)
 2926      8C0000                    SXM_TIM   EQU     $8C0000                           ;  Pixel Transmit Delay    (5640ns)NOT USED
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_READOUT.waveforms  Page 51
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  CLOCK_READOUT.waveforms  Page 51
 
 
 
@@ -3364,7 +3364,7 @@ re A2D (360ns)
 2981      Y:0001B0 Y:0001B0                   DC      CLK3+DLY0+FSYNC+F1+F2
 2982                                END_CLOCK_ROW_3
 2983   
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_READOUT.waveforms  Page 52
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  CLOCK_READOUT.waveforms  Page 52
 
 
 
@@ -3430,7 +3430,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_READOUT.w
 3043      Y:0001D9 Y:0001D9                   DC      VIDEO+SXM_TIM+%0101               ; Settling time (3880ns)
 3044      Y:0001DA Y:0001DA                   DC      VIDEO+STP_TIM+%0111               ; Stop Reseting
 3045      Y:0001DB Y:0001DB                   DC      VIDEO+INT_TIM+%0110               ; Integrate Pixel 2 (760ns)
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_READOUT.waveforms  Page 53
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  CLOCK_READOUT.waveforms  Page 53
 
 
 
@@ -3496,7 +3496,7 @@ h March 5, 2020DC      VIDEO+ADC_CNV+%0011             ; Start A/D cnv Pix 1 Sam
 3104 m                                        DC      VIDEO+INT_TIM+%0110               ; Integrate Pixel 1             1000ns
 3105 m                                        DC      VIDEO+INT_STL+%0111               ; Stop Integration & wait    360ns <----Leac
 h March 5, 2020DC      VIDEO+ADC_CNV+%0011             ; Start A/D cnv Pix 1 Sample1      40ns
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_READOUT.waveforms  Page 54
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  CLOCK_READOUT.waveforms  Page 54
 
 
 
@@ -3562,7 +3562,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_READOUT.w
 3165                                ;
 3166                                ;   RD_COLS1 ; Macro
 3167                                ;   RD_COLS1
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_READOUT.waveforms  Page 55
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  CLOCK_READOUT.waveforms  Page 55
 
 
 
@@ -3628,7 +3628,7 @@ xel 2 (40ns)
 3226   
 3227   
 3228   
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_READOUT.waveforms  Page 56
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  CLOCK_READOUT.waveforms  Page 56
 
 
 
@@ -3694,7 +3694,7 @@ Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_READOUT.w
 3288      Y:00023B Y:00023B                   DC      VIDEO+STL_TIM+%1101               ; Move A/D data to FIFO Pixel 1 (40ns)
 3289      Y:00023C Y:00023C                   DC      VIDEO+0000000+%0101               ; Settling time           40ns
 3290      Y:00023D Y:00023D                   DC      VIDEO+SXM_TIM+%0101               ; Settling time (480ns)
-Motorola DSP56300 Assembler  Version 6.3.4   22-05-06  22:00:04  CLOCK_READOUT.waveforms  Page 57
+Motorola DSP56300 Assembler  Version 6.3.4   22-05-07  18:14:13  CLOCK_READOUT.waveforms  Page 57
 
 
 
