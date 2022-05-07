@@ -26,6 +26,9 @@ Source0: %{name}-%{version}.tar.gz
 ExclusiveArch: %{arch}
 Prefix: %{_prefix}
 
+## You may specify dependencies here 
+BuildRequires: gemini-wine
+
 %description
 This is the library %{name}.
 
