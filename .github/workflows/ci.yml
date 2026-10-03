@@ -12,7 +12,7 @@ jobs:
       scripts_dir: gemini-rtsw-ci
       # Packages the committed .lod files; nothing is compiled (see the spec).
       profile: lightweight
-      el_version: '8'
+      el_version: '9'
 
   publish:
     needs: build
