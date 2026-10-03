@@ -1,12 +1,14 @@
 #!/usr/bin/bash
-# Assemble the firmware (.lod files) with the DSP56K tools under Wine.
+# Assemble the firmware (.lod files) in this repo's dev image, which contains
+# gemini-wine (the spec BuildRequires it), with this checkout mounted.
 #
-#   WINE_IMAGE=<image with gemini-wine> ./build-firmware.sh
+#   ./build-firmware.sh
+#   IMAGE=<other image with /opt/gemini-wine> ./build-firmware.sh
 #
-# gemini-wine has not been migrated to GitHub/GHCR, so there is no default
-# image: point WINE_IMAGE at one that provides
-# /gem_base/epics/ioc/gemini-wine/wine-7.0/wine (see Makefile). Commit the
-# resulting .lod files; CI packages what is committed.
+# CI assembles the firmware itself when it builds the RPM; this is for trying a
+# change locally. Equivalent to `make firmware` inside
+# ./gemini-rtsw-ci/dev_environment.sh --el 9.
 set -euo pipefail
-: "${WINE_IMAGE:?set WINE_IMAGE to an image providing gemini-wine (see the comment in this script)}"
-docker run -it --rm -v "$(pwd)":/firmware "$WINE_IMAGE" bash -c "cd /firmware && make firmware"
+IMAGE="${IMAGE:-ghcr.io/gemini-rtsw/gnirsdc-dsp:el9-latest-devel}"
+docker run --rm --platform linux/amd64 -u "$(id -u):$(id -g)" \
+    -v "$(pwd)":/firmware -w /firmware "$IMAGE" make firmware

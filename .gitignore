@@ -1,2 +1,6 @@
 docker-compose.yml
 rpms/
+local-rpms/
+.wineprefix/
+# Build output: CI assembles these from source (make firmware).
+FullFrame-unified-*/*.lod

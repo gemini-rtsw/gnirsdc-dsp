@@ -10,8 +10,9 @@ jobs:
     secrets: inherit
     with:
       scripts_dir: gemini-rtsw-ci
-      # Packages the committed .lod files; nothing is compiled (see the spec).
-      profile: lightweight
+      # epics, not lightweight: the spec pins gemini-wine, which only resolves
+      # from the rpm-repo container this profile starts.
+      profile: epics
       el_version: '9'
 
   publish:

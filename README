@@ -1,19 +1,23 @@
 GNIRS DC SDSU/ARC timing-board firmware
 =======================================
 
-Built and published by gemini-rtsw-ci: every push to main packages the
-committed .lod files as the gnirsdc-dsp RPM, installed to
-/gem_base/epics/ioc/gnirsdc-dsp/gnirsdc-firmware.
+Built and published by gemini-rtsw-ci: every push to main assembles the
+firmware from the DSP source here and packages it as the gnirsdc-dsp RPM,
+installed to /gem_base/epics/ioc/gnirsdc-dsp/gnirsdc-firmware.
 
-CI does not assemble the firmware. The DSP56K assembler runs under
-gemini-wine, which is not in the gemini-rtsw rpm-repo. To change firmware:
+The Motorola DSP56K tools in compil_DSP56K/ are 32-bit Windows console
+programs. They run under gemini-wine (github.com/gemini-rtsw/gemini-wine),
+which the spec BuildRequires, so the whole build comes from GitHub.
 
-1) WINE_IMAGE=<image with gemini-wine> ./build-firmware.sh
-   (or `make firmware` where gemini-wine is installed)
+To change firmware:
 
-2) commit the updated FullFrame-unified-*/ *.lod files
+1) edit the source (FullFrame-unified-*/)
 
-3) open a pull request; merging to main publishes the RPM
+2) ./build-firmware.sh to assemble it locally, in this repo's dev image
+   (or `make firmware` inside ./gemini-rtsw-ci/dev_environment.sh --el 9)
 
-NOTE: the AladdinIII .lod here is a 2022 build. The production firmware the
-GNIRS DC loads lives in gnirsdc-data-manager (src/firmware), with its source.
+3) open a pull request; CI assembles and packages it, and merging to main
+   publishes the RPM
+
+NOTE: the production firmware the GNIRS DC loads lives in gnirsdc-data-manager
+(src/firmware), with its source.
