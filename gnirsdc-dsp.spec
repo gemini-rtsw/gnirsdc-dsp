@@ -1,77 +1,52 @@
-%define _prefix /gem_base/epics/ioc
-%define name gnirsdc-dsp
-%define repository gemdev
-%define debug_package %{nil}
-%define arch %(uname -m)
-%define checkout %(git log --pretty=format:'%h' -n 1) 
-
-#These global defines are added to prevent stripping
-# symbols on vxWorks cross-compiled code
-# Getting 'strip' to work is probably only needed for
-# building a related debug sub-package
+# gnirsdc-dsp: the GNIRS DC SDSU/ARC timing-board firmware (.lod files).
 #
-# But this prevents all the strip warnings
-# mrippa 20120202
-%global _enable_debug_package 0
-%global debug_package %{nil}
-%global __os_install_post /usr/lib/rpm/brp-compress %{nil}
+# Packages the .lod files COMMITTED to this repo; it does not assemble them.
+# The Motorola DSP56K assembler runs under gemini-wine, which is not in the
+# gemini-rtsw rpm-repo, so CI cannot run it. Rebuild firmware the way this repo
+# always has -- `./build-firmware.sh` (or `make firmware`), then commit the
+# .lod files -- and CI packages what was committed. See README.
+#
+# Install path unchanged from the GitLab-era package.
 
-Summary: %{name} Package library for gnirsDC SDSU firmware 
-Name: %{name}
-Version: 0.0.0
-Release: 0%{?dist}
-License: EPICS Open License
-Group: Applications/Engineering
-Source0: %{name}-%{version}.tar.gz
-ExclusiveArch: %{arch}
-Prefix: %{_prefix}
+%global specver 0.1.0
+# $GIT_HASH first: build_rpm.sh computes it on the host and passes it in.
+%define git_hash %(if [ -n "$GIT_HASH" ]; then echo "$GIT_HASH"; else git rev-parse --short HEAD 2>/dev/null || echo nogit; fi)
 
-## You may specify dependencies here 
-BuildRequires: gemini-wine
+%global fwdir /gem_base/epics/ioc/%{name}/gnirsdc-firmware
+
+Name:           gnirsdc-dsp
+Version:        %{specver}
+Release:        1.git%{git_hash}%{?dist}
+Summary:        GNIRS DC SDSU/ARC timing-board firmware
+License:        Proprietary
+Source0:        %{name}-%{version}.tar.gz
+BuildArch:      noarch
 
 %description
-This is the library %{name}.
-
-## If you want to have a devel-package to be generated uncomment the following:
-%package devel
-Summary: %{name}-devel Package
-Group: Development/Gemini
-Requires: %{name}
-%description devel
-This is the library %{name}.
+Timing-board firmware (.lod) for the GNIRS detector controller's SDSU/ARC
+controller, for both the Aladdin II and Aladdin III detector builds.
 
 %prep
-%setup -q 
-
-%build
-make clean
-make
+%setup -q
 
 %install
-export DONT_STRIP=1
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/%{_prefix}/%{name}/gnirsdc-firmware
-cp -r FullFrame-unified-AladdinII/AladdinII_SDSU_Firmware.lod  $RPM_BUILD_ROOT/%{_prefix}/%{name}/gnirsdc-firmware
-cp -r FullFrame-unified-AladdinIII/AladdinIII_SDSU_Firmware.lod  $RPM_BUILD_ROOT/%{_prefix}/%{name}/gnirsdc-firmware
+install -Dpm 0644 FullFrame-unified-AladdinII/AladdinII_SDSU_Firmware.lod \
+    %{buildroot}%{fwdir}/AladdinII_SDSU_Firmware.lod
+install -Dpm 0644 FullFrame-unified-AladdinIII/AladdinIII_SDSU_Firmware.lod \
+    %{buildroot}%{fwdir}/AladdinIII_SDSU_Firmware.lod
 
-
-%postun
-if [ "$1" = "0" ]; then
-	rm -rf %{_prefix}/%{name}
-fi
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+%check
+# A .lod is a text image whose program memory starts with a _DATA P record;
+# catch an empty or truncated commit here rather than at controller init.
+for f in %{buildroot}%{fwdir}/*.lod; do
+    grep -q '^_DATA P' "$f" || { echo "ERROR: $f is not a DSP .lod image" >&2; exit 1; }
+done
 
 %files
-%defattr(-,root,root)
-   /%{_prefix}/%{name}/gnirsdc-firmware
-
-%files devel
-%defattr(-,root,root)
-   /%{_prefix}/%{name}/gnirsdc-firmware
+%dir /gem_base/epics/ioc/%{name}
+%{fwdir}
 
 %changelog
-
-
+* Fri Oct 02 2026 Hawi Stecher <hawi.stecher@noirlab.edu> - 0.1.0-1
+- Build with gemini-rtsw-ci on GitHub. Packages the committed .lod files;
+  assembling them needs gemini-wine, which is not in rpm-repo.
