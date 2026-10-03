@@ -1,14 +1,19 @@
-Building GNIRS DSP firmware Gemini ADE2
+GNIRS DC SDSU/ARC timing-board firmware
+=======================================
 
-1) make firmware
-	compile firmware (must be user)
+Built and published by gemini-rtsw-ci: every push to main packages the
+committed .lod files as the gnirsdc-dsp RPM, installed to
+/gem_base/epics/ioc/gnirsdc-dsp/gnirsdc-firmware.
 
-2) git add .
+CI does not assemble the firmware. The DSP56K assembler runs under
+gemini-wine, which is not in the gemini-rtsw rpm-repo. To change firmware:
 
-3) git commit -m "Firmware updated"
+1) WINE_IMAGE=<image with gemini-wine> ./build-firmware.sh
+   (or `make firmware` where gemini-wine is installed)
 
-4) git push
+2) commit the updated FullFrame-unified-*/ *.lod files
 
-If all goes well you will build an rpm that will install the firmware into the ADE2 framework.
-See the spec file for detail.
+3) open a pull request; merging to main publishes the RPM
 
+NOTE: the AladdinIII .lod here is a 2022 build. The production firmware the
+GNIRS DC loads lives in gnirsdc-data-manager (src/firmware), with its source.

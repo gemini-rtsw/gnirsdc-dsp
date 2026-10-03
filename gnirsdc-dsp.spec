@@ -6,7 +6,7 @@
 # always has -- `./build-firmware.sh` (or `make firmware`), then commit the
 # .lod files -- and CI packages what was committed. See README.
 #
-# Install path unchanged from the GitLab-era package.
+# Install path unchanged from the earlier package.
 
 %global specver 0.1.0
 # $GIT_HASH first: build_rpm.sh computes it on the host and passes it in.
